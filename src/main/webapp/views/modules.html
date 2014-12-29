@@ -1,0 +1,106 @@
+<div>
+
+    <h2>Modules</h2>
+
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveModuleModal" ng-click="clear()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Module
+    </button>
+    <div class="modal fade" id="saveModuleModal" tabindex="-1" role="dialog" aria-labelledby="myModuleLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="form" role="form" novalidate
+                      class="ng-scope ng-invalid ng-invalid-required ng-dirty ng-valid-minlength"
+                      ng-submit="create()">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                                ng-click="clear()">&times;</button>
+                        <h4 class="modal-title" id="myModuleLabel">Create or edit a Module</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" class="form-control" name="id"
+                                   ng-model="module.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Type</label>
+                            <input type="number" class="form-control"
+                                   ng-model="module.type">
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" class="form-control"
+                                   ng-model="module.name">
+                        </div>
+                        <div class="form-group">
+                            <label>MinLessons</label>
+                            <input type="number" class="form-control"
+                                   ng-model="module.minLessons">
+                        </div>
+                        <div class="form-group">
+                            <label>Passed</label>
+                            <input type="checkbox" class="form-control"
+                                   ng-model="module.passed">
+                        </div>
+                        <div class="form-group">
+                            <label>Year</label>
+                            <input type="datetime-local" class="form-control"
+                                   ng-model="module.year">
+                        </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                        </button>
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-save"></span> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>MinLessons</th>
+                    <th>Passed</th>
+                    <th>Year</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="module in modules">
+                    <td>{{module.id}}</td>
+                    <td>{{module.type}}</td>
+                    <td>{{module.name}}</td>
+                    <td>{{module.minLessons}}</td>
+                    <td>{{module.passed}}</td>
+                    <td>{{module.year}}</td>
+                    <td>
+                        <button type="submit"
+                                ng-click="update(module.id)"
+                                class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                        <button type="submit"
+                                ng-click="delete(module.id)"
+                                class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
