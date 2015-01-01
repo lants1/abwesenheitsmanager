@@ -44,7 +44,7 @@ public class AbwesenheitsmanagerServiceTest {
     private AbwesenheitsmanagerService abwesenheitsmanagerService;
 
     @Test
-    public void testRemoveOldPersistentTokens() {
+    public void testFindAllFinishedModules() {
         Module mod = new Module();
         mod.setMinLessons(1);
         mod.setType(99);
