@@ -30,4 +30,31 @@
             </tbody>
         </table>
     </div>
+
+    <h3>Offene Module</h3>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>MinLessons</th>
+                <th>Passed</th>
+                <th>Year</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="module in openedModules">
+                <td>{{module.id}}</td>
+                <td>{{module.type}}</td>
+                <td>{{module.name}}</td>
+                <td>{{module.minLessons}}</td>
+                <td>{{module.passed}}</td>
+                <td>{{module.year}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

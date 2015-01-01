@@ -7,7 +7,10 @@ abwesenheitsmanagerApp
                     templateUrl: 'views/modulestates.html',
                     controller: 'FinishedModulesController',
                     resolve:{
-                        resolvedModule: ['FinishedModule', function (Module) {
+                        resolvedModuleFinished: ['FinishedModule', function (Module) {
+                            return Module.query().$promise;
+                        }],
+                        resolvedModuleOpened: ['OpenedModule', function (Module) {
                             return Module.query().$promise;
                         }],
                         resolvedLesson: ['Lesson', function (Lesson) {

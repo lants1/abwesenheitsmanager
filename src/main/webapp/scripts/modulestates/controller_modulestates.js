@@ -1,14 +1,16 @@
 'use strict';
 
-abwesenheitsmanagerApp.controller('FinishedModulesController', function ($scope, resolvedModule, Module, resolvedLesson) {
+abwesenheitsmanagerApp.controller('FinishedModulesController', function ($scope, resolvedModuleFinished, resolvedModuleOpened, Module, resolvedLesson) {
 
-    $scope.finishedModules = resolvedModule;
+    $scope.finishedModules = resolvedModuleFinished;
+    $scope.openedModules = resolvedModuleOpened;
     $scope.lessons = resolvedLesson;
 
     $scope.create = function () {
         Module.save($scope.module,
             function () {
                 $scope.finishedModules = Module.query();
+                $scope.openedModules = Module.query();
                 $('#saveModuleModal').modal('hide');
                 $scope.clear();
             });

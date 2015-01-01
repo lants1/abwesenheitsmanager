@@ -38,6 +38,18 @@ public class AbwesenheitsmanagerService {
         return result;
     }
 
+    public List<Module> findAllOpenModules() {
+        List<Module> modules = moduleRepository.findAll();
+        List<Module> result = new ArrayList<Module>();
+        for(Module mod : modules){
+            List<Lesson> lessons = getVisitedLessonsByModuleType(mod.getType());
+            if(lessons.size() < mod.getMinLessons()){
+                result.add(mod);
+            }
+        }
+        return result;
+    }
+
     public List<Lesson> getVisitedLessonsByModuleType(Integer type){
         List<Lesson> lessons = lessonRepository.findAll();
         List<Lesson> result = new ArrayList<Lesson>();

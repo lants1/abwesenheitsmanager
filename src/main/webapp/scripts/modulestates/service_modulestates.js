@@ -6,3 +6,10 @@ abwesenheitsmanagerApp.factory('FinishedModule', function ($resource) {
             'get': { method: 'GET'}
         });
     });
+
+abwesenheitsmanagerApp.factory('OpenedModule', function ($resource) {
+    return $resource('app/rest/openedModules/:id', {}, {
+        'query': { method: 'GET', isArray: true},
+        'get': { method: 'GET'}
+    });
+});

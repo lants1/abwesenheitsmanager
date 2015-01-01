@@ -61,6 +61,35 @@ public class ModuleResource {
     }
 
     /**
+     * GET  /rest/openModules -> get all the openModules.
+     */
+    @RequestMapping(value = "/rest/openedModules",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Module> findAllOpenModules() {
+        log.debug("REST request to get all openModules");
+        return abwesenheitsmanagerService.findAllOpenModules();
+    }
+
+
+    /**
+     * GET  /rest/openModules/:id -> get the "openModules" module.
+     */
+    @RequestMapping(value = "/rest/openedModules/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Module> getOpenModules(@PathVariable Long id) {
+        log.debug("REST request to get finishedModules : {}", id);
+        return Optional.ofNullable(moduleRepository.findOne(id))
+            .map(module -> new ResponseEntity<>(
+                module,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
      * POST  /rest/modules -> Create a new module.
      */
     @RequestMapping(value = "/rest/modules",
