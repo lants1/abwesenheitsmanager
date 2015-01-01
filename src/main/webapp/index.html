@@ -55,6 +55,23 @@
                                 <!-- JHipster will add entities to the menu here -->
                             </ul>
                         </li>
+                        <li ng-switch-when="true" class="dropdown pointer">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">
+                                <span>
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                    <span class="hidden-tablet" translate="global.menu.abwesenheiten.main">
+                                        Entities
+                                    </span>
+                                    <b class="caret"></b>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" ng-controller="MenuController">
+                                <li ng-switch-when="true"><a href="#/modulestates"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;Modulstatus</a></li>
+                                <li ng-switch-when="true"><a href="#/lesson"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;Anwesenheit erfassen</a></li>
+                                <li ng-switch-when="true"><a href="#/module"><span class="glyphicon glyphicon-asterisk"></span>&nbsp;Modul erfassen</a></li>
+                                <!-- JHipster will add entities to the menu here -->
+                            </ul>
+                        </li>
                         <li class="dropdown pointer">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="">
                                 <span>
@@ -183,6 +200,9 @@
         <script src="scripts/lesson/router_lesson.js"></script>
         <script src="scripts/lesson/controller_lesson.js"></script>
         <script src="scripts/lesson/service_lesson.js"></script>
+        <script src="scripts/modulestates/router_modulestates.js"></script>
+        <script src="scripts/modulestates/controller_modulestates.js"></script>
+        <script src="scripts/modulestates/service_modulestates.js"></script>
         <!-- endbuild -->
 </body>
 </html>

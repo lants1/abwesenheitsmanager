@@ -7,6 +7,9 @@
             "entities": {
                 "main": "Entitäten"
             },
+            "abwesenheiten": {
+                "main": "Abwesenheiten"
+            },
             "account": {
                 "main": "Zugang",
                 "settings": "Einstellungen",
