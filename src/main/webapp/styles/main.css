@@ -52,11 +52,11 @@ Browser Upgrade Prompt
     background-color: red;
 }
 
-.hipster {
+.kurzurlaub {
     display: inline-block;
     width: 347px;
     height: 497px;
-    background: url("../images/hipster.png") no-repeat center top;
+    background: url("../images/kurzurlaub.png") no-repeat center top;
     background-size: contain;
 }
 
@@ -68,7 +68,7 @@ only screen and (     -o-min-device-pixel-ratio: 2/1),
 only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
-    .hipster {
+    .kurzurlaub {
         background: url("../images/hipster2x.png") no-repeat center top;
         background-size: contain;
     }

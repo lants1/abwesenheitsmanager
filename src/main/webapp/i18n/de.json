@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "abwesenheitsmanager",
+        "title": "Abwesenheitsmanager - Stressfrei durch den Alltag",
         "browsehappy": "Sie benutzen einen <strong>veralteten</strong> Browser. Bitte <a href=\"http://browsehappy.com/?locale=de/\">aktualisieren Sie Ihren Browser</a>, um die Benutzerfreundlichkeit zu erhöhen.",
         "menu": {
             "home": "Startseite",
@@ -66,8 +66,8 @@
         }
     },
     "main": {
-        "title": "Willkommen, Java Hipster!",
-        "subtitle": "Dies ist Ihre Hauptseite",
+        "title": "Willkommen, Student!",
+        "subtitle": "Dies ist der Weltweit erste Abwesenheitsmanager",
         "logged": {
             "message": "Sie sind als Benutzer \"{{username}}\" angemeldet."
         },
@@ -345,5 +345,5 @@
         "title": "Fehlerseite!",
         "403": "Sie haben nicht die nötigen Berechtigungen diese Seite anzuzeigen."
     },
-    "footer": "Dies ist Ihre Fußzeile"
+    "footer": "erstellt für bfh"
 }
