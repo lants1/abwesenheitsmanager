@@ -5,9 +5,9 @@ abwesenheitsmanagerApp
             $routeProvider
                 .when('/modulestates', {
                     templateUrl: 'views/modulestates.html',
-                    controller: 'ModuleStatesController',
+                    controller: 'FinishedModulesController',
                     resolve:{
-                        resolvedModule: ['Module', function (Module) {
+                        resolvedModule: ['FinishedModule', function (Module) {
                             return Module.query().$promise;
                         }],
                         resolvedLesson: ['Lesson', function (Lesson) {
