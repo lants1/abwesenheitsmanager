@@ -1,5 +1,6 @@
 package ch.bfh.web.rest;
 
+import ch.bfh.service.AbwesenheitsmanagerService;
 import com.codahale.metrics.annotation.Timed;
 import ch.bfh.domain.Module;
 import ch.bfh.repository.ModuleRepository;
@@ -25,6 +26,39 @@ public class ModuleResource {
 
     @Inject
     private ModuleRepository moduleRepository;
+
+
+    @Inject
+    private AbwesenheitsmanagerService abwesenheitsmanagerService;
+
+    /**
+     * GET  /rest/finishedModules -> get all the finishedModules.
+     */
+    @RequestMapping(value = "/rest/finishedModules",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<Module> findAllFinishedModules() {
+        log.debug("REST request to get all finishedModules");
+        return abwesenheitsmanagerService.findAllFinishedModules();
+    }
+
+
+    /**
+     * GET  /rest/finishedModules/:id -> get the "finishedModules" module.
+     */
+    @RequestMapping(value = "/rest/finishedModules/{id}",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public ResponseEntity<Module> getFinishedModules(@PathVariable Long id) {
+        log.debug("REST request to get finishedModules : {}", id);
+        return Optional.ofNullable(moduleRepository.findOne(id))
+            .map(module -> new ResponseEntity<>(
+                module,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 
     /**
      * POST  /rest/modules -> Create a new module.

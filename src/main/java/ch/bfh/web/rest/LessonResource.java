@@ -1,5 +1,7 @@
 package ch.bfh.web.rest;
 
+import ch.bfh.domain.Module;
+import ch.bfh.service.AbwesenheitsmanagerService;
 import com.codahale.metrics.annotation.Timed;
 import ch.bfh.domain.Lesson;
 import ch.bfh.repository.LessonRepository;
