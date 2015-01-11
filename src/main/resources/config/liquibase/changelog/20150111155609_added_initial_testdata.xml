@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+<property name="now" value="now()" dbms="mysql,h2"/>
+<property name="now" value="current_timestamp" dbms="postgresql"/>
+
+<!--
+    Added the entity Lesson.
+-->
+<changeSet id="20150111155609" author="lants1">
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_student values ( 1, 'swen', 'swen', 'swen');
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_module values ( 2, 2, 'BTI1337', 2,true, current_date   );
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_module values ( 3, 3, 'BTI1338', 10,false, current_date   );
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_lesson values ( 4, current_date, true, 10, 2, 1);
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_lesson values ( 5, current_date, true, 10, 2, 1);
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_lesson values ( 6, current_date, true, 10, 2, 1);
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true">insert into t_lesson values ( 7, current_date, true, 10, 3, 1);
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true"> insert into T_USER values ('hoschi', '$2a$10$10j3IfY376/965qtL8YzC.AkDKKwOFAFL3uXHh7uzPm9VmP7/ldxS', 'hoschi','hoschi','blabla',TRUE,'en','31883843447529506642','anonymousUser',current_date,'anonymousUser',current_date);
+    </sql>
+    <sql dbms="mysql,h2"
+         endDelimiter="\nGO"
+         splitStatements="true"
+         stripComments="true"> insert into T_USER_AUTHORITY values ('hoschi', 'ROLE_USER');
+    </sql>
+</changeSet>
+</databaseChangeLog>
