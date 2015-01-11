@@ -14,7 +14,7 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liqui
     <sql dbms="mysql,h2"
          endDelimiter="\nGO"
          splitStatements="true"
-         stripComments="true">insert into t_student values ( 1, 'swen', 'swen', 'swen');
+         stripComments="true">insert into t_student values ( 1, 'hoschi hoschi', 'hoschi hoschi', 'hoschi hoschi');
     </sql>
     <sql dbms="mysql,h2"
          endDelimiter="\nGO"

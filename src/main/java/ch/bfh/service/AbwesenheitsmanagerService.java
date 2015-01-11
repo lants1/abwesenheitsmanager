@@ -28,14 +28,22 @@ public class AbwesenheitsmanagerService {
     private LessonRepository lessonRepository;
 
     @Inject
-    private StudentRepository studentRepository;
+    private UserService userService;
 
+
+    public String getStudentName(){
+        StringBuilder sbStudentName = new StringBuilder();
+        sbStudentName.append(userService.getUserWithAuthorities().getFirstName());
+        sbStudentName.append(" ");
+        sbStudentName.append(userService.getUserWithAuthorities().getLastName());
+        return sbStudentName.toString();
+    }
 
     public List<Module> findAllFinishedModules() {
         List<Module> modules = moduleRepository.findAll();
         List<Module> result = new ArrayList<Module>();
         for(Module mod : modules){
-            List<Lesson> lessons = getVisitedLessonsByModuleType(mod.getType());
+            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getStudentName());
             if(lessons.size() >= mod.getMinLessons()){
                 result.add(mod);
             }
@@ -47,7 +55,7 @@ public class AbwesenheitsmanagerService {
         List<Module> modules = moduleRepository.findAll();
         List<Module> result = new ArrayList<Module>();
         for(Module mod : modules){
-            List<Lesson> lessons = getVisitedLessonsByModuleType(mod.getType());
+            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getStudentName());
             if(lessons.size() < mod.getMinLessons()){
                 result.add(mod);
             }
