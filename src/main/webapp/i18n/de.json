@@ -32,6 +32,10 @@
         "form": {
             "username": "Benutzername",
             "username.placeholder": "Ihr Benutzername",
+            "firstName": "Vorname",
+            "firstName.placeholder": "Ihr Vorname",
+            "lastName": "Name",
+            "lastName.placeholder": "Ihr Name",
             "newpassword": "Neues Passwort",
             "newpassword.placeholder": "Neues Passwort",
             "confirmpassword": "Neues Passwort bestätigen",
@@ -101,8 +105,17 @@
                 "login": {
                     "required": "Ihr Benutzername wird benötigt.",
                     "minlength": "Ihr Benutzername muss mindestens 1 Zeichen lang sein",
-                    "maxlength": "Ihr Benutzername darf nicht länger als 50 Zeichen sein",
-                    "pattern": "Your login can only contain lower-case letters and digits"
+                    "maxlength": "Ihr Benutzername darf nicht länger als 50 Zeichen sein"
+                },
+                "firstName": {
+                    "required": "Ihr Vorname wird benötigt.",
+                    "minlength": "Ihr Vorname muss mindestens 1 Zeichen lang sein",
+                    "maxlength": "Ihr Vorname darf nicht länger als 50 Zeichen sein"
+                },
+                "lastName": {
+                    "required": "Ihr Nachname wird benötigt.",
+                    "minlength": "Ihr Nachname muss mindestens 1 Zeichen lang sein",
+                    "maxlength": "Ihr Nachname darf nicht länger als 50 Zeichen sein"
                 }
             },
             "success": "<strong>Registrierung gespeichert!</strong> Bitte überprüfen Sie ihre E-Mails für die Bestätigung.",

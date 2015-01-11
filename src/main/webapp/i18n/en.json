@@ -32,6 +32,10 @@
         "form": {
             "username": "Login",
             "username.placeholder": "Your login",
+            "firstName": "First name",
+            "firstName.placeholder": "Your first name",
+            "lastName": "Last name",
+            "lastName.placeholder": "Your last name",
             "newpassword": "New password",
             "newpassword.placeholder": "New password",
             "confirmpassword": "New password confirmation",
@@ -103,6 +107,16 @@
                     "minlength": "Your login is required to be at least 1 character",
                     "maxlength": "Your login cannot be longer than 50 characters",
                     "pattern": "Your login can only contain lower-case letters and digits"
+                },
+                "firstName": {
+                    "required": "Your first name is required.",
+                    "minlength": "Your first name is required to be at least 1 character",
+                    "maxlength": "Your first name cannot be longer than 50 characters"
+                },
+                "lastName": {
+                    "required": "Your last name is required.",
+                    "minlength": "Your last name is required to be at least 1 character",
+                    "maxlength": "Your last name cannot be longer than 50 characters"
                 }
             },
             "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
