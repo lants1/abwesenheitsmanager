@@ -41,7 +41,7 @@
         },
         "messages": {
             "info": {
-                "authenticated": "Wenn Sie sich <a href=\"#/login\">anmelden</a> möchten, versuchen Sie es mit <br/>- Administrator (Name=\"admin\" und Passwort=\"admin\")<br/>- Benutzer (Name=\"user\" und Passwort=\"user\").",
+                "authenticated": "Bitte loggen sie sich ein <a href=\"#/login\">anmelden</a> <br/>).",
                 "register": "Sie haben noch keinen Zugang? <a href=\"#/register\">Registrieren Sie sich</a>"
             },
             "error": {
