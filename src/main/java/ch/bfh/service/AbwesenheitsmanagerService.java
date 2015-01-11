@@ -83,14 +83,12 @@ public class AbwesenheitsmanagerService {
     }
 
     public List<Lesson> getVisitedLessonsByModuleTypeAndStudent(Integer type, String vornameLeerschlagNachname){
-        List<Lesson> lessons = lessonRepository.findAll();
+        List<Lesson> lessons = lessonRepository.findByStudent(getCurrentStudent());
         List<Lesson> result = new ArrayList<Lesson>();
         for(Lesson lesson : lessons){
-            if(lesson.getStudent() != null && lesson.getStudent().getName().equalsIgnoreCase(vornameLeerschlagNachname)) {
                 if (lesson.getVistied() && lesson.getModule().getType().intValue() == type.intValue()) {
                     result.add(lesson);
                 }
-            }
         }
         return result;
     }
