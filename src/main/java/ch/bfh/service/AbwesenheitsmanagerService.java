@@ -31,7 +31,7 @@ public class AbwesenheitsmanagerService {
         List<Module> result = new ArrayList<Module>();
         for(Module mod : modules){
             List<Lesson> lessons = getVisitedLessonsByModuleType(mod.getType());
-            if(lessons.size() > mod.getMinLessons()){
+            if(lessons.size() >= mod.getMinLessons()){
                 result.add(mod);
             }
         }
