@@ -34,12 +34,19 @@ public class AbwesenheitsmanagerService {
     @Inject
     private UserService userService;
 
+    private static final String DEFAULT_USER = "hoschi hoschi";
 
     public String getCurrentStudentName(){
         StringBuilder sbStudentName = new StringBuilder();
-        sbStudentName.append(userService.getUserWithAuthorities().getFirstName());
-        sbStudentName.append(" ");
-        sbStudentName.append(userService.getUserWithAuthorities().getLastName());
+        if(userService.getUserWithAuthorities() != null) {
+            sbStudentName.append(userService.getUserWithAuthorities().getFirstName());
+            sbStudentName.append(" ");
+            sbStudentName.append(userService.getUserWithAuthorities().getLastName());
+        }
+        else
+        {
+            sbStudentName.append(DEFAULT_USER);
+        }
         return sbStudentName.toString();
     }
 

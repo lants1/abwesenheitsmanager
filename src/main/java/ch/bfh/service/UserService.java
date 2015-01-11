@@ -41,7 +41,7 @@ public class UserService {
 
     @Inject
     private UserRepository userRepository;
-    
+
     @Inject
     private StudentRepository studentRepository;
 
@@ -113,6 +113,9 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User getUserWithAuthorities() {
+        if(SecurityUtils.getCurrentLogin() == null){
+            return null;
+        }
         User currentUser = userRepository.findOne(SecurityUtils.getCurrentLogin());
         currentUser.getAuthorities().size(); // eagerly load the association
         return currentUser;

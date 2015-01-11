@@ -3,16 +3,23 @@ package ch.bfh.service;
 import ch.bfh.Application;
 import ch.bfh.domain.*;
 import ch.bfh.repository.*;
+import ch.bfh.web.rest.AccountResource;
 import org.junit.Before;
 import org.junit.After;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import static org.mockito.Mockito.when;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -40,21 +47,28 @@ public class AbwesenheitsmanagerServiceTest {
     private StudentRepository studentRepository;
 
     @Inject
+    private UserRepository userRepository;
+
+    @Inject
     private AbwesenheitsmanagerService abwesenheitsmanagerService;
 
     @Before
     public void initTest() {
-        Student student = new Student();
-        student.setName("hoschi");
+        /*Student student = new Student();
+        student.setName("hoschi hoschi");
         student.setPassword("pw");
         student.setUsername("poschi");
-        studentRepository.saveAndFlush(student);
+        studentRepository.saveAndFlush(student);*/
+
+        User user = userRepository.findOneByEmail("blabla");
+        Student student = studentRepository.getStudentByName("hoschi hoschi");
 
         Module mod = new Module();
         mod.setMinLessons(1);
         mod.setType(99);
         mod.setName("test");
         mod.setPassed(false);
+        mod.setStudent(student);
         moduleRepository.saveAndFlush(mod);
 
         Module mod2 = new Module();
@@ -62,6 +76,7 @@ public class AbwesenheitsmanagerServiceTest {
         mod2.setType(98);
         mod2.setName("test");
         mod2.setPassed(false);
+        mod.setStudent(student);
         moduleRepository.saveAndFlush(mod2);
 
         mod = moduleRepository.getModuleByType(99);
@@ -94,7 +109,6 @@ public class AbwesenheitsmanagerServiceTest {
         lessonRepository.saveAndFlush(lesson11);
         lessonRepository.saveAndFlush(lesson22);
         lessonRepository.saveAndFlush(lesson33);
-
     }
 
     @Test
@@ -115,9 +129,9 @@ public class AbwesenheitsmanagerServiceTest {
         assertThat(finishedModuleNOk).isFalse();
     }
 
-    @Test
+
+   @Test
     public void testGetVisitedLessonsByModuleTypeAndStudent() {
-        assertThat(abwesenheitsmanagerService.getVisitedLessonsByModuleTypeAndStudent(99, "hoschi")).hasSize(3);
-        assertThat(abwesenheitsmanagerService.getVisitedLessonsByModuleTypeAndStudent(99, "phoschi")).hasSize(0);
+        assertThat(abwesenheitsmanagerService.getVisitedLessonsByModuleTypeAndStudent(99, "hoschi hoschi")).hasSize(3);
     }
 }
