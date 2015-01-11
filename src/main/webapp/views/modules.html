@@ -50,8 +50,11 @@
                             <input type="datetime-local" class="form-control"
                                    ng-model="module.year">
                         </div>
-
-
+                        <div class="form-group">
+                            <label>Student</label>
+                            <select class="form-control" ng-model="module.student.id" ng-options="student.id as student.name for student in students">
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

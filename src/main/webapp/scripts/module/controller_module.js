@@ -1,9 +1,10 @@
 'use strict';
 
-abwesenheitsmanagerApp.controller('ModuleController', function ($scope, resolvedModule, Module, resolvedLesson) {
+abwesenheitsmanagerApp.controller('ModuleController', function ($scope, resolvedModule, Module, resolvedLesson, resolvedStudent) {
 
         $scope.modules = resolvedModule;
         $scope.lessons = resolvedLesson;
+        $scope.students = resolvedStudent;
 
         $scope.create = function () {
             Module.save($scope.module,

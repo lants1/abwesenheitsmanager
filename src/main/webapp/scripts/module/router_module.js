@@ -13,6 +13,10 @@ abwesenheitsmanagerApp
                         resolvedLesson: ['Lesson', function (Lesson) {
                             return Lesson.query().$promise;
                         }]
+                        ,
+                        resolvedStudent: ['Student', function (Student) {
+                            return Student.query().$promise;
+                        }]
                     },
                     access: {
                         authorizedRoles: [USER_ROLES.all]
