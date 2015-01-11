@@ -45,7 +45,7 @@
         },
         "messages": {
             "info": {
-                "authenticated": "Bitte loggen sie sich ein <a href=\"#/login\">anmelden</a>",
+                "authenticated": "Bitte loggen sie sich ein: <a href=\"#/login\">Anmelden</a>",
                 "register": "Sie haben noch keinen Zugang? <a href=\"#/register\">Registrieren Sie sich</a>"
             },
             "error": {
