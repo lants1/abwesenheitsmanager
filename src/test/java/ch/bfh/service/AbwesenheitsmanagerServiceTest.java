@@ -87,6 +87,20 @@ public class AbwesenheitsmanagerServiceTest {
         lessonRepository.saveAndFlush(lesson22);
         lessonRepository.saveAndFlush(lesson33);
 
-        assertThat(abwesenheitsmanagerService.findAllFinishedModules()).hasSize(1);
+
+        boolean finishedModuleOk = false;
+        boolean finishedModuleNOk = false;
+
+        List<Module> modules = abwesenheitsmanagerService.findAllFinishedModules();
+        for(Module modFin: modules){
+            if(modFin.getType() == 99){
+                finishedModuleOk = true;
+            }
+            if(modFin.getType() == 98){
+                finishedModuleNOk = true;
+            }
+        }
+        assertThat(finishedModuleOk).isTrue();
+        assertThat(finishedModuleNOk).isFalse();
     }
 }
