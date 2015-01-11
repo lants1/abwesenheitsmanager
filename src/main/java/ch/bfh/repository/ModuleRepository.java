@@ -1,6 +1,5 @@
 package ch.bfh.repository;
 
-import ch.bfh.domain.Lesson;
 import ch.bfh.domain.Module;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

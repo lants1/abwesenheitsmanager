@@ -1,14 +1,10 @@
 package ch.bfh.service;
 
 import ch.bfh.Application;
-import ch.bfh.domain.Lesson;
-import ch.bfh.domain.Module;
-import ch.bfh.domain.PersistentToken;
-import ch.bfh.domain.User;
-import ch.bfh.repository.LessonRepository;
-import ch.bfh.repository.ModuleRepository;
-import ch.bfh.repository.PersistentTokenRepository;
-import ch.bfh.repository.UserRepository;
+import ch.bfh.domain.*;
+import ch.bfh.repository.*;
+import org.junit.Before;
+import org.junit.After;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Test;
@@ -41,10 +37,19 @@ public class AbwesenheitsmanagerServiceTest {
     private LessonRepository lessonRepository;
 
     @Inject
+    private StudentRepository studentRepository;
+
+    @Inject
     private AbwesenheitsmanagerService abwesenheitsmanagerService;
 
-    @Test
-    public void testFindFinishedModules() {
+    @Before
+    public void initTest() {
+        Student student = new Student();
+        student.setName("hoschi");
+        student.setPassword("pw");
+        student.setUsername("poschi");
+        studentRepository.saveAndFlush(student);
+
         Module mod = new Module();
         mod.setMinLessons(1);
         mod.setType(99);
@@ -63,12 +68,15 @@ public class AbwesenheitsmanagerServiceTest {
         Lesson lesson1 = new Lesson();
         lesson1.setVistied(true);
         lesson1.setModule(mod);
+        lesson1.setStudent(student);
         Lesson lesson2 = new Lesson();
         lesson2.setVistied(true);
         lesson2.setModule(mod);
+        lesson2.setStudent(student);
         Lesson lesson3 = new Lesson();
         lesson3.setVistied(true);
         lesson3.setModule(mod);
+        lesson3.setStudent(student);
         lessonRepository.saveAndFlush(lesson1);
         lessonRepository.saveAndFlush(lesson2);
         lessonRepository.saveAndFlush(lesson3);
@@ -87,7 +95,10 @@ public class AbwesenheitsmanagerServiceTest {
         lessonRepository.saveAndFlush(lesson22);
         lessonRepository.saveAndFlush(lesson33);
 
+    }
 
+    @Test
+    public void testFindFinishedModules() {
         boolean finishedModuleOk = false;
         boolean finishedModuleNOk = false;
 
@@ -102,5 +113,11 @@ public class AbwesenheitsmanagerServiceTest {
         }
         assertThat(finishedModuleOk).isTrue();
         assertThat(finishedModuleNOk).isFalse();
+    }
+
+    @Test
+    public void testGetVisitedLessonsByModuleTypeAndStudent() {
+        assertThat(abwesenheitsmanagerService.getVisitedLessonsByModuleTypeAndStudent(99, "hoschi")).hasSize(3);
+        assertThat(abwesenheitsmanagerService.getVisitedLessonsByModuleTypeAndStudent(99, "phoschi")).hasSize(0);
     }
 }

@@ -119,6 +119,16 @@ public class StudentResourceTest {
     }
 
     @Test
+    public void getStudentByName() throws Exception {
+        restStudentMockMvc.perform(post("/app/rest/students")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(student)))
+            .andExpect(status().isOk());
+
+        assertThat(studentRepository.getStudentByName(DEFAULT_NAME)).isNotNull();
+    }
+
+    @Test
     @Transactional
     public void getNonExistingStudent() throws Exception {
         // Get the student

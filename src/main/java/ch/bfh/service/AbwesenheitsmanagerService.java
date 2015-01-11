@@ -2,8 +2,10 @@ package ch.bfh.service;
 
 import ch.bfh.domain.Lesson;
 import ch.bfh.domain.Module;
+import ch.bfh.domain.Student;
 import ch.bfh.repository.LessonRepository;
 import ch.bfh.repository.ModuleRepository;
+import ch.bfh.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;
@@ -24,6 +26,9 @@ public class AbwesenheitsmanagerService {
 
     @Inject
     private LessonRepository lessonRepository;
+
+    @Inject
+    private StudentRepository studentRepository;
 
 
     public List<Module> findAllFinishedModules() {
@@ -56,6 +61,19 @@ public class AbwesenheitsmanagerService {
         for(Lesson lesson : lessons){
             if(lesson.getVistied() && lesson.getModule().getType().intValue() == type.intValue()){
                 result.add(lesson);
+            }
+        }
+        return result;
+    }
+
+    public List<Lesson> getVisitedLessonsByModuleTypeAndStudent(Integer type, String vornameLeerschlagNachname){
+        List<Lesson> lessons = lessonRepository.findAll();
+        List<Lesson> result = new ArrayList<Lesson>();
+        for(Lesson lesson : lessons){
+            if(lesson.getStudent() != null && lesson.getStudent().getName().equalsIgnoreCase(vornameLeerschlagNachname)) {
+                if (lesson.getVistied() && lesson.getModule().getType().intValue() == type.intValue()) {
+                    result.add(lesson);
+                }
             }
         }
         return result;
