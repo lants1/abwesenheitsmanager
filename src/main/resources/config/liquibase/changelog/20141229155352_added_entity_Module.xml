@@ -20,7 +20,13 @@
             <column name="min_lessons" type="integer"/>
             <column name="passed" type="bit"/>
             <column name="year" type="timestamp"/>
+            <column name="student_id" type="bigint"/>
         </createTable>
-        
+
+        <addForeignKeyConstraint baseColumnNames="student_id"
+                                 baseTableName="T_MODULE"
+                                 constraintName="fk_module_student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="T_STUDENT"/>
     </changeSet>
 </databaseChangeLog>

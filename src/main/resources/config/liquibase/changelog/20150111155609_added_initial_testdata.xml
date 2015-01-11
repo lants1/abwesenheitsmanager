@@ -19,12 +19,12 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liqui
     <sql dbms="mysql,h2"
          endDelimiter="\nGO"
          splitStatements="true"
-         stripComments="true">insert into t_module values ( 2, 2, 'BTI1337', 2,true, current_date   );
+         stripComments="true">insert into t_module values ( 2, 2, 'BTI1337', 2,true, current_date, 1);
     </sql>
     <sql dbms="mysql,h2"
          endDelimiter="\nGO"
          splitStatements="true"
-         stripComments="true">insert into t_module values ( 3, 3, 'BTI1338', 10,false, current_date   );
+         stripComments="true">insert into t_module values ( 3, 3, 'BTI1338', 10,false, current_date, 1);
     </sql>
     <sql dbms="mysql,h2"
          endDelimiter="\nGO"

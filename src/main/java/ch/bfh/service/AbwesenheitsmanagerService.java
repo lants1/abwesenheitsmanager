@@ -6,6 +6,7 @@ import ch.bfh.domain.Student;
 import ch.bfh.repository.LessonRepository;
 import ch.bfh.repository.ModuleRepository;
 import ch.bfh.repository.StudentRepository;
+import ch.bfh.web.rest.StudentResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;
@@ -28,10 +29,13 @@ public class AbwesenheitsmanagerService {
     private LessonRepository lessonRepository;
 
     @Inject
+    private StudentRepository studentRepository;
+
+    @Inject
     private UserService userService;
 
 
-    public String getStudentName(){
+    public String getCurrentStudentName(){
         StringBuilder sbStudentName = new StringBuilder();
         sbStudentName.append(userService.getUserWithAuthorities().getFirstName());
         sbStudentName.append(" ");
@@ -39,11 +43,15 @@ public class AbwesenheitsmanagerService {
         return sbStudentName.toString();
     }
 
+    public Student getCurrentStudent(){
+        return studentRepository.getStudentByName(getCurrentStudentName());
+    }
+
     public List<Module> findAllFinishedModules() {
-        List<Module> modules = moduleRepository.findAll();
+        List<Module> modules = moduleRepository.findByStudent(getCurrentStudent());
         List<Module> result = new ArrayList<Module>();
         for(Module mod : modules){
-            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getStudentName());
+            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getCurrentStudentName());
             if(lessons.size() >= mod.getMinLessons()){
                 result.add(mod);
             }
@@ -52,10 +60,10 @@ public class AbwesenheitsmanagerService {
     }
 
     public List<Module> findAllOpenModules() {
-        List<Module> modules = moduleRepository.findAll();
+        List<Module> modules = moduleRepository.findByStudent(getCurrentStudent());
         List<Module> result = new ArrayList<Module>();
         for(Module mod : modules){
-            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getStudentName());
+            List<Lesson> lessons = getVisitedLessonsByModuleTypeAndStudent(mod.getType(), getCurrentStudentName());
             if(lessons.size() < mod.getMinLessons()){
                 result.add(mod);
             }

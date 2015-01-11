@@ -50,6 +50,9 @@ public class Module implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Lesson> lessons = new HashSet<>();
 
+    @ManyToOne
+    private Student student;
+
     public Long getId() {
         return id;
     }
@@ -104,6 +107,14 @@ public class Module implements Serializable {
 
     public void setLessons(Set<Lesson> lessons) {
         this.lessons = lessons;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override
