@@ -2,12 +2,15 @@ package ch.bfh.service;
 
 import ch.bfh.domain.Authority;
 import ch.bfh.domain.PersistentToken;
+import ch.bfh.domain.Student;
 import ch.bfh.domain.User;
 import ch.bfh.repository.AuthorityRepository;
 import ch.bfh.repository.PersistentTokenRepository;
+import ch.bfh.repository.StudentRepository;
 import ch.bfh.repository.UserRepository;
 import ch.bfh.security.SecurityUtils;
 import ch.bfh.service.util.RandomUtil;
+
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.slf4j.Logger;
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -37,6 +41,9 @@ public class UserService {
 
     @Inject
     private UserRepository userRepository;
+    
+    @Inject
+    private StudentRepository studentRepository;
 
     @Inject
     private PersistentTokenRepository persistentTokenRepository;
@@ -77,6 +84,11 @@ public class UserService {
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);
         newUser.setAuthorities(authorities);
+        Student newStudent = new Student();
+        newStudent.setName(firstName+" "+lastName);
+        newStudent.setUsername(login);
+        newStudent.setPassword(encryptedPassword);
+        studentRepository.save(newStudent);
         userRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
