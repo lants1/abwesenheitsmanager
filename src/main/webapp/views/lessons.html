@@ -1,8 +1,8 @@
 <div>
 
-    <h2>Lessons</h2>
+    <h2 translate="lessons.title">Lessons</h2>
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveLessonModal" ng-click="clear()">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveLessonModal" translate="lessons.button.create" ng-click="clear()">
         <span class="glyphicon glyphicon-flash"></span> Create a new Lesson
     </button>
     <div class="modal fade" id="saveLessonModal" tabindex="-1" role="dialog" aria-labelledby="myLessonLabel"
@@ -16,7 +16,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myLessonLabel">Create or edit a Lesson</h4>
+                        <h4 class="modal-title" id="myLessonLabel" translate="lessons.form. title">Create or edit a Lesson</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -26,38 +26,38 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Date</label>
+                            <label translate="lessons.form.date">Date</label>
                             <input type="datetime-local" class="form-control"
                                    ng-model="lesson.date">
                         </div>
                         <div class="form-group">
-                            <label>Vistied</label>
+                            <label translate="lessons.form.visited">Vistied</label>
                             <input type="checkbox" class="form-control"
                                    ng-model="lesson.vistied">
                         </div>
                         <div class="form-group">
-                            <label>Rating</label>
+                            <label translate="lessons.form.rating">Rating</label>
                             <input type="checkbox" class="form-control"
                                    ng-model="lesson.rating">
                         </div>
 
                         <div class="form-group">
-                            <label>module</label>
+                            <label translate="lessons.form.module">Module</label>
                             <select class="form-control" ng-model="lesson.module.id" ng-options="module.id as module.name for module in modules">
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>student</label>
+                            <label>Student</label>
                             <select class="form-control" ng-model="lesson.student.id" ng-options="student.id as student.name for student in students">
                             </select>
                         </div>
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" translate="lessons.button.cancel" ng-click="clear()">
                             <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                         </button>
-                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="lessons.button.save ">
                             <span class="glyphicon glyphicon-save"></span> Save
                         </button>
                     </div>
@@ -71,11 +71,11 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Date</th>
-                    <th>Vistied</th>
-                    <th>Rating</th>
-                    <th>module</th>
-                    <th>student</th>
+                    <th translate="lessons.form.date">Date</th>
+                    <th translate="lessons.form.visited">Vistied</th>
+                    <th translate="lessons.form.rating">Rating</th>
+                    <th translate="lessons.form.module">Module</th>
+                    <th>Student</th>
                     <th></th>
                 </tr>
             </thead>
@@ -90,12 +90,12 @@
                     <td>
                         <button type="submit"
                                 ng-click="update(lesson.id)"
-                                class="btn btn-default">
+                                class="btn btn-default" translate="lessons.button.edit">
                             <span class="glyphicon glyphicon-pencil"></span> Edit
                         </button>
                         <button type="submit"
                                 ng-click="delete(lesson.id)"
-                                class="btn btn-danger">
+                                class="btn btn-danger" translate="lessons.button.delete">
                             <span class="glyphicon glyphicon-remove-circle"></span> Delete
                         </button>
                     </td>

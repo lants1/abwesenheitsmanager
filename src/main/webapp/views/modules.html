@@ -1,8 +1,8 @@
 <div>
 
-    <h2>Modules</h2>
+    <h2 translate="modules.title.modules">Modules</h2>
 
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveModuleModal" ng-click="clear()">
+    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#saveModuleModal" translate="modules.button.create" ng-click="clear()">
         <span class="glyphicon glyphicon-flash"></span> Create a new Module
     </button>
     <div class="modal fade" id="saveModuleModal" tabindex="-1" role="dialog" aria-labelledby="myModuleLabel"
@@ -16,7 +16,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                                 ng-click="clear()">&times;</button>
-                        <h4 class="modal-title" id="myModuleLabel">Create or edit a Module</h4>
+                        <h4 class="modal-title" id="myModuleLabel" translate="modules.form.title">Create or edit a Module</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Type</label>
+                            <label translate="modules.form.type">Type</label>
                             <input type="number" class="form-control"
                                    ng-model="module.type">
                         </div>
@@ -36,17 +36,17 @@
                                    ng-model="module.name">
                         </div>
                         <div class="form-group">
-                            <label>MinLessons</label>
+                            <label translate="modules.form.minLessons">MinLessons</label>
                             <input type="number" class="form-control"
                                    ng-model="module.minLessons">
                         </div>
                         <div class="form-group">
-                            <label>Passed</label>
+                            <label translate="modules.form.passed">Passed</label>
                             <input type="checkbox" class="form-control"
                                    ng-model="module.passed">
                         </div>
                         <div class="form-group">
-                            <label>Year</label>
+                            <label translate="modules.form.year">Year</label>
                             <input type="datetime-local" class="form-control"
                                    ng-model="module.year">
                         </div>
@@ -57,10 +57,10 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" translate="modules.button.cancel" ng-click="clear()">
                             <span class="glyphicon glyphicon-ban-circle"></span> Cancel
                         </button>
-                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">
+                        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="modules.button.save">
                             <span class="glyphicon glyphicon-save"></span> Save
                         </button>
                     </div>
@@ -74,11 +74,11 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Type</th>
+                    <th translate="modules.form.type">Type</th>
                     <th>Name</th>
-                    <th>MinLessons</th>
-                    <th>Passed</th>
-                    <th>Year</th>
+                    <th translate="modules.form.minLessons">MinLessons</th>
+                    <th translate="modules.form.passed">Passed</th>
+                    <th translate="modules.form.year">Year</th>
                     <th></th>
                 </tr>
             </thead>
@@ -94,12 +94,12 @@
                     <td>
                         <button type="submit"
                                 ng-click="update(module.id)"
-                                class="btn btn-default">
+                                class="btn btn-default" translate="modules.button.edit">
                             <span class="glyphicon glyphicon-pencil"></span> Edit
                         </button>
                         <button type="submit"
                                 ng-click="delete(module.id)"
-                                class="btn btn-danger">
+                                class="btn btn-danger" translate="modules.button.delete">
                             <span class="glyphicon glyphicon-remove-circle"></span> Delete
                         </button>
                     </td>

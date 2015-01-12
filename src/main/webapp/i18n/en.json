@@ -8,7 +8,7 @@
                 "main": "Entities"
             },
             "abwesenheiten": {
-                "main": "Abwesenheiten"
+                "main": "Absences"
             },
             "account": {
                 "main": "Account",
@@ -139,6 +139,64 @@
             "error": {
                 "authentication": "<strong>Authentication failed!</strong> Please check your credentials and try again."
             }
+        }
+    },
+    "students": {
+        "title": "Students",
+        "form": {
+            "username": "Username",
+            "password": "Password",
+            "title": "Create oder edit a student"
+        },
+        "button": {
+            "create": "Create student",
+            "edit": "edit",
+            "delete": "delete",
+            "cancel": "cancel",
+            "save": "save"
+        }
+    },
+    "modules": {
+        "title": {
+            "modules": "Modules",
+            "modstates": "Modulestates"
+        },
+        "form": {
+            "type": "type",
+            "minLessons": "Min. lessons",
+            "passed": "passed",
+            "year": "year",
+            "title": "Create or edit module"
+        },
+        "button": {
+            "create": "Create module",
+            "edit": "edit",
+            "delete": "delete",
+            "cancel": "cancel",
+            "save": "save"
+        },
+        "text": {
+            "intro": "Overview of all your modules",
+            "passedMod": "Passed modules",
+            "openMod": "Open modules"
+        }
+    },
+    "lessons": {
+        "title": "Lessons",
+        "form": {
+            "date": "Date",
+            "visited": "visited",
+            "rating": "rated",
+            "module": "Module",
+            "title": "Create or edit a lesson"
+        },
+        "button": {
+            "create": "Create lesson",
+            "add": "add presence",
+            "edit": "edit",
+            "delete": "delete",
+            "cancel": "cancel",
+            "save": "save"
         }
     },
     "settings": {
@@ -362,5 +420,5 @@
         "title": "Error page!",
         "403": "You are not authorized to access the page."
     },
-    "footer": "produced for bfh"
+    "footer": "organize your study"
 }

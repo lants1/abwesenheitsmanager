@@ -140,6 +140,64 @@
             }
         }
     },
+    "students": {
+        "title": "Studenten",
+        "form": {
+            "username": "Benutzername",
+            "password": "Passwort",
+            "title": "Student erfassen oder editieren"
+        },
+        "button": {
+            "create": "Student erfassen",
+            "edit": "editieren",
+            "delete": "löschen",
+            "cancel": "abbrechen",
+            "save": "speichern"
+        }
+    },
+    "modules": {
+        "title": {
+            "modules": "Module",
+            "modstates": "Modulübersicht"
+        },
+        "form": {
+            "type": "Typ",
+            "minLessons": "Min. Lektionen",
+            "passed": "bestanden",
+            "year": "Jahr",
+            "title": "Modul erfassen oder editieren"
+        },
+        "button": {
+            "create": "Modul erfassen",
+            "edit": "bearbeiten",
+            "delete": "löschen",
+            "cancel": "abbrechen",
+            "save": "speichern"
+        },
+        "text": {
+            "intro": "Übersicht über alle zu besuchenden Module",
+            "passedMod": "Abgeschlossene Module",
+            "openMod": "Offene Module"
+        }
+    },
+    "lessons": {
+        "title": "Lektionen",
+        "form": {
+            "date": "Datum",
+            "visited": "besucht",
+            "rating": "bewertet",
+            "module": "Modul",
+            "title": "Lektion erfassen oder editieren"
+        },
+        "button": {
+            "create": "Lektion erfassen",
+            "add": "Anwesenheit erfassen",
+            "edit": "bearbeiten",
+            "delete": "löschen",
+            "cancel": "abbrechen",
+            "save": "speichern"
+        }
+    },
     "settings": {
         "title": "Einstellungen für Benutzer [<b>{{username}}</b>]",
         "form": {
@@ -283,7 +341,7 @@
             "mean": "Durchschnittliche Zugriffszeit (ms)"
         },
         "datasource": {
-        	"usage": "Usage",
+            "usage": "Usage",
             "title": "Datenquelle (Zeit in millisekunden)",
             "name": "Pool-Auslastung",
             "count": "Anzahl",
